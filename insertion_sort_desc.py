@@ -37,3 +37,22 @@ if __name__ == "__main__":
     data = []  # Test with an empty list
     print("Original array:", data)
     print("Sorted array in descending order:", insertion_sort_desc(data))
+# Commit 4: Add User Input Functionality
+def insertion_sort_desc(arr):
+    if len(arr) <= 1:  # Handle edge cases
+        return arr
+
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] < key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+if __name__ == "__main__":
+    # Allow user to input a list of numbers
+    data = list(map(int, input("Enter numbers separated by spaces: ").split()))
+    print("Original array:", data)
+    print("Sorted array in descending order:", insertion_sort_desc(data))
